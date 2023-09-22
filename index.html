@@ -12,5 +12,84 @@
     />
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
-  <body></body>
+
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <img src="assets/img/logo.png" class="logo" />
+        <label for="toggle-menu"
+          ><i class="fa-solid fa-bars" style="color: #192345"></i
+        ></label>
+        <input type="checkbox" id="toggle-menu" />
+        <ul class="navbar-list">
+          <li class="navbar-link"><a href="#hero">Home</a></li>
+          <li class="navbar-link"><a href="#nosotros">Nosotros</a></li>
+          <li class="navbar-link"><a href="#snes">SNES</a></li>
+          <li class="navbar-link"><a href="#gba">GBA</a></li>
+          <li class="navbar-link"><a href="#gba">Dreamcast</a></li>
+          <li class="navbar-link"><a href="#gba">Playstation</a></li>
+          <li class="navbar-link"><a href="#contact">Contacto</a></li>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="envio">
+      <h1>
+        Con tu compra online de $25.000 envío GRATIS en CABA, Gran Buenos Aires
+        y La Plata
+      </h1>
+    </div>
+
+    <section id="hero">
+      <div class="carrousel">
+        <img src="assets/img/banner-mario.jpg" alt="banner" />
+      </div>
+    </section>
+
+    <div class="descuento">
+      15% DE DESCUENTO EN TU PRIMERA COMPRA - CÓDIGO: OLDIES15
+    </div>
+    <section id="nosotros">
+      <div class="nosotros-container">
+        <div class="nosotros-card">
+          <img src="assets/img/rocket-img.png" alt="Envíos" />
+          <h3>Envíos a todo el país</h3>
+          <p>En CABA por moto, Buenos Aires y resto del país por correo.</p>
+        </div>
+        <div class="nosotros-card">
+          <img src="assets/img/support-img.png" alt="Test" />
+          <h3>Comprá con seguridad</h3>
+          <p>
+            Todos nuestros juegos fueron previamente testeados y cuentan con 6
+            meses de garantía.
+          </p>
+        </div>
+        <div class="nosotros-card">
+          <img src="assets/img/game-img.png" alt="Juegos" />
+          <h3>Nostalgia a solo un click</h3>
+          <p>
+            Constantemente actualizamos nuestro catálogo con los juegos que
+            marcaron tu infancia.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="juegos">
+      <h2>Juegos</h2>
+      <div class="categories">
+        <button class="category active">Todos</button>
+        <button class="category" data-category="snes">SNES</button>
+        <button class="category" data-category="gba">GameBoy Advanced</button>
+        <button class="category" data-category="dreamcast">Dreamcast</button>
+        <button class="category" data-category="playstation">Playstation 1</button>
+      </div>
+      <div class="juegos-container">
+
+      </div>
+      <button class="btn-load">Ver Más</button>
+    </section>
+    <script src="./assets/data.js"></script>
+    <script src="./assets/index.js"></script>
+  </body>
 </html>
