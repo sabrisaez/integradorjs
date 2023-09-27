@@ -1,5 +1,5 @@
-const juegosContainer = document.querySelector(".juegos-container");
-const productsCart = document.querySelector(".cart-container"); //carrito
+const productsContainer = document.querySelector(".products-container");
+const productsCart = document.querySelector(".cart-container");
 const total = document.querySelector(".total");
 const categoriesContainer = document.querySelector(".categories");
 const categoriesList = document.querySelectorAll(".category"); //NodeList || NO ES UN ARRAY []
@@ -18,7 +18,7 @@ const deleteBtn = document.querySelector(".btn-delete");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const createProductTemplate = (product) => {
-  const { id, name, price, year, category, consoleImg, cardImg } = product;
+  const { id, name, price, year, consoleImg, cardImg } = product;
   return `
     <div class="product">
     <img src=${cardImg} alt=${name} />
@@ -26,13 +26,11 @@ const createProductTemplate = (product) => {
 
         <div class="product-top">
             <h3>${name}</h3>
-            <p>Current Bid</p>
         </div>
 
         <div class="product-mid">
             <div class="product-user">
-                <img src=${consoleImg} alt="consola" />
-                <p>@${category}</p>
+                <img src=${consoleImg} alt="" />
             </div>
             <span>${price} $ARS</span>
         </div>
@@ -41,27 +39,33 @@ const createProductTemplate = (product) => {
         <div class="product-bot">
             <div class="product-offer">
                 <div class="offer-time">
-                    <img src="./assets/img/fire.png" alt="" />
-                    <p>05:12:07</p>
+                    <p>Año:${year}</p>
                 </div>
                 <button class="btn-add"
                 data-id='${id}'
                 data-name='${name}'
-                data-price='${price}'
-                data-img='${cardImg}'>Add</button>
+                data-bid='${price}'
+                data-img='${cardImg}'>Agregar</button>
             </div>
         </div>
     </div>
 </div>`;
 };
 
+// [{},{},{}] || ['<></>','<></>','<></>'] || '<></>''<></>''<></>''<></>''<></>'
 const renderProducts = (productList) => {
-  juegosContainer.innerHTML += productList.map(createProductTemplate).join("");
+  productsContainer.innerHTML += productList
+    .map(createProductTemplate)
+    .join("");
 };
+// Ver más //
+/////////////////////////////////////////////
 
 const isLastIndexOf = () => {
   return appState.currentProductsIndex === appState.productsLimit - 1;
 };
+
+// Función par arenderizar mpas productos cuando la persona pariete ver más
 
 const showMoreProducts = () => {
   appState.currentProductsIndex += 1;
@@ -72,6 +76,8 @@ const showMoreProducts = () => {
   }
 };
 
+// función para mostrar u ocultar el boton de ver más
+
 const setShowMoreVisibility = () => {
   if (!appState.activeFilter) {
     showMoreBtn.classList.remove("hidden");
@@ -80,6 +86,9 @@ const setShowMoreVisibility = () => {
   showMoreBtn.classList.add("hidden");
 };
 
+// Lógica de los filtros
+
+// Fucnión para cambiar el estado de los botones del filtro/categorias
 const changeBtnActiveState = (selectedCategory) => {
   const categories = [...categoriesList];
   categories.forEach((categoryBtn) => {
@@ -91,12 +100,15 @@ const changeBtnActiveState = (selectedCategory) => {
   });
 };
 
+//Función para cambiar el estado del filtro activo
+
 const changeFilterState = (btn) => {
   appState.activeFilter = btn.dataset.category;
   changeBtnActiveState(appState.activeFilter);
   setShowMoreVisibility(appState.activeFilter);
 };
 
+// Función para si el elemento que se apretó es un boton de categoria y no esta activo
 const isInactiveFilterBtn = (element) => {
   return (
     element.classList.contains("category") &&
@@ -104,6 +116,8 @@ const isInactiveFilterBtn = (element) => {
   );
 };
 
+// funcion para aplicar el filtro cuando se apreta un boton de categoria
+//
 const applyFilter = (event) => {
   const { target } = event;
   console.log(target);
@@ -120,9 +134,32 @@ const applyFilter = (event) => {
   renderProducts(appState.products[0]);
 };
 
+// Función para filtar los productos por categoría y renderizarlos
+
 const renderFilteredProducts = () => {
-  const filteredProducts = gamesDataData.filter(
+  const filteredProducts = productsData.filter(
     (product) => product.category === appState.activeFilter
   );
   renderProducts(filteredProducts);
 };
+const init = () => {
+  renderProducts(appState.products[0]);
+  showMoreBtn.addEventListener("click", showMoreProducts);
+  categoriesContainer.addEventListener("click", applyFilter);
+  cartBtn.addEventListener("click", toggleCart);
+  menuBtn.addEventListener("click", toggleMenu);
+  window.addEventListener("scroll", closeOnScroll);
+  barsMenu.addEventListener("click", closeOnClick);
+  overlay.addEventListener("click", closeOnOverlayClick);
+  document.addEventListener("DOMContentLoaded", renderCart);
+  document.addEventListener("DOMContentLoaded", showCartTotal);
+  productsContainer.addEventListener("click", addProduct);
+  productsCart.addEventListener("click", handleQuantity);
+  buyBtn.addEventListener("click", completeBuy);
+  deleteBtn.addEventListener("click", deleteCart);
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn);
+  renderCartBubble(cart);
+};
+
+init();
