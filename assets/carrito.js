@@ -1,4 +1,10 @@
+const productsContainer = document.querySelector(".products-container");
+const productsCart = document.querySelector(".cart-container");
 const total = document.querySelector(".total");
+const categoriesContainer = document.querySelector(".categories");
+const categoriesList = document.querySelectorAll(".category");
+const showMoreBtn = document.querySelector(".btn-load");
+const buyBtn = document.querySelector(".btn-buy");
 const cartBubble = document.querySelector(".cart-bubble");
 const cartBtn = document.querySelector(".cart-label");
 const menuBtn = document.querySelector(".menu-label");
@@ -8,8 +14,7 @@ const overlay = document.querySelector(".overlay");
 const successModal = document.querySelector(".add-modal"); // react-hot-toast
 const deleteBtn = document.querySelector(".btn-delete");
 
-// carrito //
-
+// seteamos el carrito
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Menu interface
@@ -68,19 +73,19 @@ const closeOnOverlayClick = () => {
 const createCartProductTemplate = (cartProduct) => {
   const { id, name, bid, img, quantity } = cartProduct;
   return `    
-      <div class="cart-item">
-        <img src=${img} alt="Nft del carrito" />
-        <div class="item-info">
-          <h3 class="item-title">${name}</h3>
-          <p class="item-bid">Current bid</p>
-          <span class="item-price">${bid} ETH</span>
-        </div>
-        <div class="item-handler">
-          <span class="quantity-handler down" data-id=${id}>-</span>
-          <span class="item-quantity">${quantity}</span>
-          <span class="quantity-handler up" data-id=${id}>+</span>
-        </div>
-      </div>`;
+    <div class="cart-item">
+      <img src=${img} alt="Nft del carrito" />
+      <div class="item-info">
+        <h3 class="item-title">${name}</h3>
+        <p class="item-bid">Current bid</p>
+        <span class="item-price">${bid} ETH</span>
+      </div>
+      <div class="item-handler">
+        <span class="quantity-handler down" data-id=${id}>-</span>
+        <span class="item-quantity">${quantity}</span>
+        <span class="quantity-handler up" data-id=${id}>+</span>
+      </div>
+    </div>`;
 };
 
 // Función para renderizar los productos del carrito o el mensaje "No hay productos en el carrito"
@@ -223,12 +228,12 @@ const removeProductFromCart = (product) => {
 
 // Función para restar una unidad a un producto del carrito
 /*
-   [{
-    messi,
-    4
-   }]
-  
-  */
+ [{
+  messi,
+  4
+ }]
+
+*/
 const subtractProductUnit = (product) => {
   cart = cart.map((item) => {
     return item.id === product.id

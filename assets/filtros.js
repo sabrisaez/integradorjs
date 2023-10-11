@@ -134,20 +134,7 @@ const init = () => {
   renderProducts(appState.products[0]);
   showMoreBtn.addEventListener("click", showMoreProducts);
   categoriesContainer.addEventListener("click", applyFilter);
-  cartBtn.addEventListener("click", toggleCart);
-  menuBtn.addEventListener("click", toggleMenu);
-  window.addEventListener("scroll", closeOnScroll);
-  barsMenu.addEventListener("click", closeOnClick);
-  overlay.addEventListener("click", closeOnOverlayClick);
-  document.addEventListener("DOMContentLoaded", renderCart);
-  document.addEventListener("DOMContentLoaded", showCartTotal);
   gamesContainer.addEventListener("click", addProduct);
-  productsCart.addEventListener("click", handleQuantity);
-  buyBtn.addEventListener("click", completeBuy);
-  deleteBtn.addEventListener("click", deleteCart);
-  disableBtn(buyBtn);
-  disableBtn(deleteBtn);
-  renderCartBubble(cart);
 };
 
 init();

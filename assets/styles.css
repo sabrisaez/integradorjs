@@ -317,3 +317,7 @@ h1:hover {
 .btn-load:hover {
   background: var(--textblack);
 }
+
+.hidden {
+  display: none;
+}
