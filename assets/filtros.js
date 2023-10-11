@@ -1,20 +1,11 @@
-const productsContainer = document.querySelector(".games-container");
-const productsCart = document.querySelector(".cart-container");
-const total = document.querySelector(".total");
+const gamesContainer = document.querySelector(".games-container");
 const categoriesContainer = document.querySelector(".categories");
 const categoriesList = document.querySelectorAll(".category");
 const showMoreBtn = document.querySelector(".btn-load");
-const buyBtn = document.querySelector(".btn-buy");
-const cartBubble = document.querySelector(".cart-bubble");
-const cartBtn = document.querySelector(".cart-label");
-const menuBtn = document.querySelector(".menu-label");
-const cartMenu = document.querySelector(".cart");
-const barsMenu = document.querySelector(".navbar-list");
-const overlay = document.querySelector(".overlay");
-const successModal = document.querySelector(".add-modal"); // react-hot-toast
-const deleteBtn = document.querySelector(".btn-delete");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Cards juegos //
 
 const createProductTemplate = (product) => {
   const { id, name, price, year, consoleImg, cardImg } = product;
@@ -52,18 +43,16 @@ const createProductTemplate = (product) => {
 };
 
 const renderProducts = (productList) => {
-  productsContainer.innerHTML += productList
-    .map(createProductTemplate)
-    .join("");
+  gamesContainer.innerHTML += productList.map(createProductTemplate).join("");
 };
+
 // Ver más //
-/////////////////////////////////////////////
 
 const isLastIndexOf = () => {
   return appState.currentProductsIndex === appState.productsLimit - 1;
 };
 
-// Función par arenderizar mpas productos cuando la persona pariete ver más
+// Función para renderizar más productos cuando la persona presione ver más //
 
 const showMoreProducts = () => {
   appState.currentProductsIndex += 1;
@@ -74,7 +63,7 @@ const showMoreProducts = () => {
   }
 };
 
-// función para mostrar u ocultar el boton de ver más
+// Función para mostrar u ocultar el boton de ver más //
 
 const setShowMoreVisibility = () => {
   if (!appState.activeFilter) {
@@ -120,7 +109,7 @@ const applyFilter = (event) => {
   const { target } = event;
   console.log(target);
   if (!isInactiveFilterBtn(target)) return;
-  productsContainer.innerHTML = "";
+  gamesContainer.innerHTML = "";
 
   changeFilterState(target);
   if (appState.activeFilter) {
@@ -152,7 +141,7 @@ const init = () => {
   overlay.addEventListener("click", closeOnOverlayClick);
   document.addEventListener("DOMContentLoaded", renderCart);
   document.addEventListener("DOMContentLoaded", showCartTotal);
-  productsContainer.addEventListener("click", addProduct);
+  gamesContainer.addEventListener("click", addProduct);
   productsCart.addEventListener("click", handleQuantity);
   buyBtn.addEventListener("click", completeBuy);
   deleteBtn.addEventListener("click", deleteCart);
