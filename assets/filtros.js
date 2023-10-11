@@ -1,8 +1,8 @@
-const productsContainer = document.querySelector(".products-container");
+const productsContainer = document.querySelector(".games-container");
 const productsCart = document.querySelector(".cart-container");
 const total = document.querySelector(".total");
 const categoriesContainer = document.querySelector(".categories");
-const categoriesList = document.querySelectorAll(".category"); //NodeList || NO ES UN ARRAY []
+const categoriesList = document.querySelectorAll(".category");
 const showMoreBtn = document.querySelector(".btn-load");
 const buyBtn = document.querySelector(".btn-buy");
 const cartBubble = document.querySelector(".cart-bubble");
@@ -14,7 +14,6 @@ const overlay = document.querySelector(".overlay");
 const successModal = document.querySelector(".add-modal"); // react-hot-toast
 const deleteBtn = document.querySelector(".btn-delete");
 
-// seteamos el carrito
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const createProductTemplate = (product) => {
@@ -52,7 +51,6 @@ const createProductTemplate = (product) => {
 </div>`;
 };
 
-// [{},{},{}] || ['<></>','<></>','<></>'] || '<></>''<></>''<></>''<></>''<></>'
 const renderProducts = (productList) => {
   productsContainer.innerHTML += productList
     .map(createProductTemplate)
@@ -142,6 +140,7 @@ const renderFilteredProducts = () => {
   );
   renderProducts(filteredProducts);
 };
+
 const init = () => {
   renderProducts(appState.products[0]);
   showMoreBtn.addEventListener("click", showMoreProducts);

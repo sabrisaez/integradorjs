@@ -33,7 +33,7 @@ const productsData = [
     year: 1996,
     category: "snes",
     consoleImg: "./assets/img/snes-logo.jpg",
-    cardImg: "./assets/img/Donkey-Kong-Country 3.jpg",
+    cardImg: "./assets/img/Donkey-Kong-Country-3.jpg",
   },
   {
     id: 5,
@@ -237,16 +237,11 @@ const divideProductsInParts = (size) => {
   return productsList;
 };
 
-// const [products, setState] = useState
-// const [currentProductsIndex, setState] = useState
-// const [productsLimit, setState] = useState
-// const [activeFilter, setState] = useState
-
 const appState = {
   //  0                     1              2
-  products: divideProductsInParts(3), // [ [{},{},{},{},{}] , [{},{},{},{},{}], [{},{},{},{},{}]] 3
+  products: divideProductsInParts(6), // [ [{},{},{},{},{}] , [{},{},{},{},{}], [{},{},{},{},{}]] 3
   currentProductsIndex: 0,
-  productsLimit: divideProductsInParts(3).length, // 3
+  productsLimit: divideProductsInParts(6).length, // 3
   activeFilter: null,
 };
 
