@@ -321,3 +321,40 @@ h1:hover {
 .hidden {
   display: none;
 }
+
+/* Contacto */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--background);
+  background-size: cover;
+}
+
+.contactform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 50px;
+}
+
+#contact h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--textblack);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--textblack);
+  background-size: cover;
+  color: white;
+}

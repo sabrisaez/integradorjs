@@ -1,0 +1,98 @@
+:root {
+  --background: #f3efe0;
+  --textgray: #434242;
+  --textblack: #222222;
+  --textturquoise: #22a39f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.form__title {
+  margin-bottom: 10px;
+}
+
+.form__input {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: white;
+  outline: var(--textblack);
+  border: var(--textblack);
+  width: 350px;
+  margin: 5px 0px;
+  color: var(--textblack);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 90px #252525 inset !important;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff !important;
+}
+
+.form__submit__btn {
+  font-size: 0.9rem;
+  background-color: var(--textturquoise);
+  color: var(--background);
+  border: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 350px;
+}
+
+.form__submit__btn:hover {
+  background-color: var(--textblack);
+  color: var(--background);
+}
+
+/* Error / Success */
+.form__field.error input {
+  border: 1px solid #dc3545;
+}
+
+.form__field small {
+  color: #dc3545;
+  max-width: 350px;
+  text-align: center;
+  display: none;
+}
+
+.form__field.success input {
+  border: 1px solid #28a745;
+}
+
+#form__error {
+  color: #dc3545;
+  font-size: 1rem;
+  margin: 8px 0px;
+  max-width: 350px;
+  text-align: center;
+}
