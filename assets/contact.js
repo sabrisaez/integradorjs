@@ -5,29 +5,29 @@ const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
 const messageInput = document.getElementById("message");
 
-// Función para chequear si el campo esta vacio (input)
+// Checkear si el campo está vacío
 const isEmpty = (input) => {
   return !input.value.trim().length;
 };
 
-// Función para determinar si el largo del value del input esta entre un minimo y un maximo de caracteres
+// Checkear el mínimo y máximo de carácteres
 const isBetween = (input, min, max) => {
   return input.value.length >= min && input.value.length < max;
 };
 
-// Función para validar una dirección de email con expresión regular
+// Validar email con expresión regular
 const isEmailValid = (input) => {
   const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
   return re.test(input.value.trim());
 };
 
-// Función para validar el telefeno con expresión regular
+// Validar teléfono con expresión regular
 const isValidPhone = (input) => {
   const re = /^[0-9]{10}$/;
   return re.test(input.value.trim());
 };
 
-// Función para mostrar error al validar un input
+// Mostrar error al validar un input
 
 const showError = (input, message) => {
   const formField = input.parentElement;
@@ -38,7 +38,7 @@ const showError = (input, message) => {
   error.textContent = message;
 };
 
-// Función para mostrar un input como valido
+// Mostrar un input como valido
 
 const showSuccess = (input) => {
   const formField = input.parentElement;
@@ -48,7 +48,7 @@ const showSuccess = (input) => {
   error.textContent = "";
 };
 
-// Función para validar un input de tipo texto
+// Validar un input de tipo texto
 
 const checkTextInput = (input) => {
   // setear la validez del value a retortnar
@@ -74,7 +74,7 @@ const checkTextInput = (input) => {
   return valid;
 };
 
-// Función para validar si el input email es valido
+// Validar si el email es valido
 
 const checkEmail = (input) => {
   // setear la validez del value a retortnar
@@ -94,14 +94,14 @@ const checkEmail = (input) => {
   return valid;
 };
 
-// función para validar el input del mensaje
+// Validar mensaje
 
 const checkMessage = (input) => {
   // setear la validez del value a retortnar
   let valid = false;
 
   if (isEmpty(input)) {
-    showError(input, "Este campo no puede estar vacío.");
+    showError(input, "Este campo es obligatorio");
     return;
   }
 
@@ -110,7 +110,7 @@ const checkMessage = (input) => {
   return valid;
 };
 
-// Función para validar el input del telefono
+// Validar el teléfono
 
 const checkPhone = (input) => {
   // setear la validez del value a retortnar
@@ -149,7 +149,7 @@ const validateForm = (e) => {
     isPhoneValid;
 
   if (isValidForm) {
-    alert("Mensaje enviado con éxito! Pronto nos contactaremos con vos.");
+    alert("¡Mensaje enviado con éxito! Pronto nos contactaremos con vos .");
     window.location.href = "index.html";
   }
 };
