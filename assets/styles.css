@@ -197,7 +197,7 @@ h1:hover {
 
 .product {
   width: 250px;
-  height: 350px;
+  height: 380px;
   text-align: center;
   background: var(--background);
   border-radius: 10px;
@@ -205,8 +205,11 @@ h1:hover {
   padding: 20px;
 }
 
-.product img {
-  width: 180px;
+.productImg-Container img {
+  max-width: 200px; /* Establece un tamaño máximo del 100% del contenedor */
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .product-info {

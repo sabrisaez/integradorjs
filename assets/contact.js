@@ -154,7 +154,7 @@ const validateForm = (e) => {
   }
 };
 
-const init = () => {
+const initContact = () => {
   contactForm.addEventListener("submit", validateForm);
   nameInput.addEventListener("input", () => checkTextInput(nameInput));
   lastNameInput.addEventListener("input", () => checkTextInput(lastNameInput));
@@ -162,4 +162,4 @@ const init = () => {
   messageInput.addEventListener("input", () => checkMessage(messageInput));
   phoneInput.addEventListener("input", () => checkPhone(phoneInput));
 };
-init();
+initContact();

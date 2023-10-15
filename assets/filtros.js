@@ -11,7 +11,8 @@ const createProductTemplate = (product) => {
   const { id, name, price, year, consoleImg, cardImg } = product;
   return `
     <div class="product">
-    <img src=${cardImg} alt=${name} />
+    <div class="productImg-Container">    <img src=${cardImg} alt=${name} /> </div>
+
     <div class="product-info">
 
         <div class="product-top">
