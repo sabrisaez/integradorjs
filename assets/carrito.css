@@ -1,0 +1,384 @@
+:root {
+  --background: #f3efe0;
+  --textgray: #434242;
+  --textblack: #222222;
+  --textturquoise: #22a39f;
+}
+
+.cart-icon {
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 18px;
+  margin-right: 1rem;
+  color: var(--text-white);
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+}
+
+.cart-bubble {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  text-align: center;
+  background: var(--textturquoise);
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  height: 15px;
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1px;
+  border-radius: 50%;
+}
+
+/* MENU HAMBURGUESA Desktop */
+/* AGREGADO CLASE 10 */
+
+.menu-label {
+  display: none;
+}
+
+/*carrito*/
+.cart {
+  position: absolute;
+  top: 65px;
+  right: 0;
+  padding: 50px 30px;
+  background: white;
+  border-left: 1px solid var(--nav-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  z-index: 2;
+  min-width: 375px;
+  transform: translate(200%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/*OCULTAR BARRA DE SCROLL DEL CARRITO*/
+
+.cart::-webkit-scrollbar {
+  display: none;
+}
+
+.cart h2 {
+  color: var(--text-white);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: var(--background);
+  padding: 20px;
+  border: 1px solid var(--electric);
+  border-radius: 10px;
+}
+
+.cart-item img {
+  height: 65px;
+  width: 65px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 110px;
+}
+
+.item-title {
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.item-bid {
+  color: var(--text-gray);
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.item-price {
+  background: var(--textturquoise);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.item-handler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.quantity-handler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: var(--text-white);
+  font-weight: 400;
+}
+
+.item-quantity {
+  color: var(--text-gray);
+}
+
+.up {
+  border: 1px solid var(--electric);
+}
+
+.down {
+  background-color: var(--secondary);
+  border: 1px solid var(--electric);
+}
+
+.divider {
+  margin-top: 20px;
+  border: 0.5px solid var(--electric);
+  width: 100%;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.cart-total p {
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.cart-total span {
+  color: var(--text-white);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/*Toggle del carro*/
+.open-cart {
+  transform: translate(0%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.empty-msg {
+  color: var(--textblack);
+  font-size: 14px;
+}
+
+/* nuevo */
+
+.overlay {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1; /*Para que quede por encima del resto de las cosas*/
+
+  /*Efecto de Glassmorphismo*/
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: none;
+}
+
+/*Toggle para el overlay (para que funcione unicamente cuando abrimos carrito o menu hamburguesa.
+    Aclarar que funciona porque son elementos hermanos y overlay esta debajo de los dos inputs en el código.*/
+.show-overlay {
+  display: block;
+}
+
+/*Hover de los elementos "a" del navbar*/
+.navbar-list li {
+  position: relative;
+  padding: 0;
+}
+
+.navbar-list li a::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: var(--text-white);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.15s ease;
+}
+
+.navbar-list li a:hover::after {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+/*CARRITO */
+/*Despues de cambiar el carrito en el html y en styles.css , aplicamos una animación en hover*/
+.cart-icon {
+  transition: all 0.2s ease-out;
+}
+
+.cart-icon:hover {
+  color: var(--electric);
+  border-color: var(--electric);
+  transition: all 0.2s ease-in;
+}
+
+/*Botones del carrito*/
+.quantity-handler {
+  transition: all 0.2s ease-in;
+}
+
+.quantity-handler:hover {
+  cursor: pointer;
+  background-color: var(--electric);
+  transition: all 0.2s ease-in;
+}
+
+/*Botones comprar(carrito) y add(producto) y BENUCBER(Hero)*/
+.btn-add,
+.hero-info a {
+  transition: all 0.2s ease-out;
+}
+
+.btn-add:hover,
+.hero-info a:hover {
+  background-color: var(--fire);
+  transition: all 0.2s ease-in;
+}
+
+/* Boton ver mas de la sección de productos */
+.btn-load {
+  transition: all 0.2s ease-out;
+  font-weight: 600;
+}
+
+.btn-load:hover {
+  background-color: var(--electric);
+  color: var(--text-white);
+  transition: all 0.2s ease-in;
+}
+/* Animaciones */
+/* Vamos a hacer animaciones de entrada a los elementos del hero y la seccion 2 (Las de la sección dos son
+    por si la página se ve en una pantalla grande)*/
+
+/* Animacion fade */
+/*Funcionamiento: pasa de opacidad 0 a opacidad 1*/
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animacion slide arriba */
+/*Funcionamiento: Hacemos llegar al elemento animado desde abajo*/
+@keyframes slide-up {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Animacion slide derecha */
+/*Funcionamiento: Hacemos llegar al elemento animado desde la derecha*/
+
+@keyframes slide-right {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Animacion al h1 */
+.hero-info h1 {
+  /*animacion - duración - animation-function*/
+  animation: fade 1s ease-in, slide-up 1.3s ease-in-out;
+}
+
+/* Animacion al p */
+.hero-info p {
+  opacity: 0;
+  /*animacion - duración - animation-function - forwards para que quede fijo al final.*/
+  animation: fade 0.8s ease-in forwards, slide-up 0.9s ease-in-out;
+  animation-delay: 0.3s;
+}
+
+/* Animacion al boton */
+.hero-info a {
+  opacity: 0;
+  /*animacion - duración - animation-function - forwards para que quede fijo al final.*/
+  animation: fade 0.8s ease-in forwards, slide-up 0.9s ease-in-out;
+  animation-delay: 0.4s;
+}
+
+/* Animacion a la card del hero */
+.hero-card {
+  opacity: 0;
+  /*animacion - duración - animation-function - forwards para que quede fijo al final.*/
+  animation: fade 1s ease-in forwards, slide-right 1.3s ease-in-out;
+  animation-delay: 0.2s;
+}
+
+/* Animacion Seccion 2 */
+#info h2 {
+  opacity: 0;
+  /*animacion - duración - animation-function - forwards para que quede fijo al final.*/
+  animation: fade 0.8s ease-in forwards, slide-up 0.9s ease-in-out;
+  animation-delay: 0.4s;
+}
+
+/* Animacion cards seccion 2 */
+.info-card {
+  opacity: 0;
+  /*animacion - duración - animation-function - forwards para que quede fijo al final.*/
+  animation: fade 0.8s ease-in forwards, slide-up 1.3s ease-in-out;
+}
+
+/*Aplicamos un delay a las cards para que aparezcan en distintos momentos.*/
+.info-card:nth-child(1) {
+  animation-delay: 0.8s;
+}
+.info-card:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.info-card:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/*Microinteracción para las imagenes de las cards de productos*/
+.product img {
+  transition: all 0.3s linear;
+}
+
+.product img:hover {
+  transform: scale(1.02);
+  transition: all 0.3s linear;
+}

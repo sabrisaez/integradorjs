@@ -1,9 +1,5 @@
-const productsContainer = document.querySelector(".products-container");
 const productsCart = document.querySelector(".cart-container");
 const total = document.querySelector(".total");
-const categoriesContainer = document.querySelector(".categories");
-const categoriesList = document.querySelectorAll(".category");
-const showMoreBtn = document.querySelector(".btn-load");
 const buyBtn = document.querySelector(".btn-buy");
 const cartBubble = document.querySelector(".cart-bubble");
 const cartBtn = document.querySelector(".cart-label");
@@ -77,8 +73,7 @@ const createCartProductTemplate = (cartProduct) => {
       <img src=${img} alt="Nft del carrito" />
       <div class="item-info">
         <h3 class="item-title">${name}</h3>
-        <p class="item-bid">Current bid</p>
-        <span class="item-price">${bid} ETH</span>
+        <span class="item-price">${bid} $ARS</span>
       </div>
       <div class="item-handler">
         <span class="quantity-handler down" data-id=${id}>-</span>
@@ -111,7 +106,7 @@ const getCartTotal = () => {
 // función para mostrar el total de la compra
 
 const showCartTotal = () => {
-  total.innerHTML = `${getCartTotal().toFixed(2)} eTH`;
+  total.innerHTML = `${getCartTotal().toFixed(2)} $ARS`;
 };
 
 // función para actualizar la burbuja de cantidad con el numero de productos en el carrito
@@ -182,20 +177,6 @@ const showSuccessModal = (msg) => {
   setTimeout(() => {
     successModal.classList.remove("active-modal");
   }, 1500); // 1500ms === 1,5s
-};
-
-// Función para crear un objeto con la información del producto que se agrega al carrito
-const addProduct = (e) => {
-  if (!e.target.classList.contains("btn-add")) return;
-  const product = createProductData(e.target.dataset);
-  if (isExistingCartProduct(product)) {
-    addUnitToProduct(product);
-    showSuccessModal("Se agregó una unidad del producto al carrito");
-  } else {
-    createCartPorduct(product);
-    showSuccessModal("El producto se ha agregado al carrito");
-  }
-  updateCartState();
 };
 
 // Función para agregar mas de cada producto del carrito
@@ -283,10 +264,8 @@ const deleteCart = () => {
   );
 };
 
-const init = () => {
+const carrito = () => {
   renderProducts(appState.products[0]);
-  showMoreBtn.addEventListener("click", showMoreProducts);
-  categoriesContainer.addEventListener("click", applyFilter);
   cartBtn.addEventListener("click", toggleCart);
   menuBtn.addEventListener("click", toggleMenu);
   window.addEventListener("scroll", closeOnScroll);
@@ -294,7 +273,6 @@ const init = () => {
   overlay.addEventListener("click", closeOnOverlayClick);
   document.addEventListener("DOMContentLoaded", renderCart);
   document.addEventListener("DOMContentLoaded", showCartTotal);
-  productsContainer.addEventListener("click", addProduct);
   productsCart.addEventListener("click", handleQuantity);
   buyBtn.addEventListener("click", completeBuy);
   deleteBtn.addEventListener("click", deleteCart);
@@ -303,4 +281,4 @@ const init = () => {
   renderCartBubble(cart);
 };
 
-init();
+carrito();

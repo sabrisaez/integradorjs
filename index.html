@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="stylesheet" href="assets/contact.css">
+    <link rel="stylesheet" href="assets/carrito.css">
   </head>
 
   <body>
@@ -29,6 +30,37 @@
           <li class="navbar-link"><a href="#contact">Contacto</a></li>
           </li>
         </ul>
+        <div class="menu-label">
+          <img src="./assets/img/menu.png" alt="" class="menu-icon" />
+        </div>
+        <div class="cart-label">
+
+          <img src="assets/img/carrito.png" class="cart-icon">
+            <div class="cart-bubble">0</div>
+          </img>
+        </div>
+  
+  
+        <div class="cart">
+  
+          <h2>Carrito</h2>
+  
+  
+          <div class="cart-container">
+  
+          </div>
+  
+          <span class="divider"></span>
+  
+          <div class="cart-total">
+            <p>Total:</p>
+            <span class="total">0 ARS</span>
+          </div>
+          <button class="btn-buy">Comprar</button>
+          <button class="btn-delete">Vaciar carrito</button>
+        </div>
+  
+        <div class="overlay"></div>
       </nav>
     </header>
 
@@ -138,13 +170,14 @@
 </div>
 
 </section>
-
+<div class="add-modal"></div>
 <footer>
   <p>2023 - Pixel Oldies ® - Hecho con ❤️ por Sabrina - Galería Bond Street - Av. Sta. Fe 1670, local XX</p>
 </footer>
-
-    <script src="./assets/filtros.js"></script>    
+   
     <script src="./data.js"></script>
+    <script src="./assets/filtros.js"></script> 
 <script src="./assets/contact.js"></script>
+<script src="./assets/carrito.js"></script>
   </body>
 </html>

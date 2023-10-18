@@ -3,8 +3,6 @@ const categoriesContainer = document.querySelector(".categories");
 const categoriesList = document.querySelectorAll(".category");
 const showMoreBtn = document.querySelector(".btn-load");
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 // Cards juegos //
 
 const createProductTemplate = (product) => {
@@ -129,6 +127,19 @@ const renderFilteredProducts = () => {
     (product) => product.category === appState.activeFilter
   );
   renderProducts(filteredProducts);
+};
+
+const addProduct = (e) => {
+  if (!e.target.classList.contains("btn-add")) return;
+  const product = createProductData(e.target.dataset);
+  if (isExistingCartProduct(product)) {
+    addUnitToProduct(product);
+    showSuccessModal("Se agregó una unidad del producto al carrito");
+  } else {
+    createCartPorduct(product);
+    showSuccessModal("El producto se ha agregado al carrito");
+  }
+  updateCartState();
 };
 
 const init = () => {
