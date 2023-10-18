@@ -7,15 +7,12 @@ const menuBtn = document.querySelector(".menu-label");
 const cartMenu = document.querySelector(".cart");
 const barsMenu = document.querySelector(".navbar-list");
 const overlay = document.querySelector(".overlay");
-const successModal = document.querySelector(".add-modal"); // react-hot-toast
+const successModal = document.querySelector(".add-modal");
 const deleteBtn = document.querySelector(".btn-delete");
 
-// seteamos el carrito
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Menu interface
-
-// Función para mostrar u ocultar el menu hamburguesa y el overlay
+// Función para mostrar u ocultar menu hamburguesa y overlay
 
 const toggleMenu = () => {
   barsMenu.classList.toggle("open-menu");
@@ -35,7 +32,7 @@ const toggleCart = () => {
   overlay.classList.toggle("show-overlay");
 };
 
-// Función para cerrar el menú hamburguewsa y el overlay cuando se hace click en un link
+// Cerrar el menú hamburguewsa y el overlay cuando se hace click en navbar
 
 const closeOnClick = (e) => {
   if (!e.target.classList.contains("navbar-link")) return;
@@ -43,7 +40,7 @@ const closeOnClick = (e) => {
   overlay.classList.remove("show-overlay");
 };
 
-//Función para cerrar el menú hamburguewsa y el overlay cuando se hace scroll
+// Cerrar el menú hamburguesa y el overlay cuando se hace scroll
 const closeOnScroll = () => {
   if (
     !barsMenu.classList.contains("open-menu") &&

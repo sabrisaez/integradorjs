@@ -240,5 +240,3 @@ const appState = {
   productsLimit: divideProductsInParts(25).length,
   activeFilter: null,
 };
-
-init();
