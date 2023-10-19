@@ -385,3 +385,53 @@ footer {
   transform: translateY(0);
   transition: all 0.5s ease-in;
 }
+
+/* carrousel */
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#carrousel {
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  overflow: hidden;
+  animation-name: fade;
+  animation-duration: 1s;
+  display: none;
+}
+
+img {
+  width: 100%;
+}
+
+#dot {
+  margin: 0 auto;
+  text-align: center;
+}
+.dot {
+  display: inline-block;
+  border-radius: 50%;
+  background: #d3d3d3;
+  padding: 8px;
+  margin: 10px 5px;
+}
+
+.active {
+  background: #22a39f;
+}
+
+@media (max-width: 567px) {
+  #slider {
+    width: 100%;
+  }
+}
