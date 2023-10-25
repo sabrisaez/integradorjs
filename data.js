@@ -55,7 +55,7 @@ const productsData = [
   },
   {
     id: 7,
-    name: "The Legend of Zelda: A Link to the Past",
+    name: "Zelda: A Link to the Past",
     price: 24000,
     year: 1991,
     category: "snes",

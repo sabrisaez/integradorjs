@@ -79,7 +79,7 @@ ul a {
 
 h1:hover {
   color: #222222;
-  background-color: yellow;
+  background-color: #ffff00;
 }
 
 /* Hero section - Carrusel */
@@ -426,8 +426,8 @@ img {
   margin: 10px 5px;
 }
 
-.active {
-  background: #22a39f;
+.active-dot {
+  background: var(--textturquoise);
 }
 
 @media (max-width: 567px) {

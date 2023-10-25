@@ -1,0 +1,103 @@
+/* Mediaqueries tablet */
+@media (max-width: 768px) {
+  /* Nosotros section */
+  .nosotros-card {
+    width: 200px;
+    height: 200px;
+  }
+  .nosotros-card h3 {
+    font-size: 15px;
+  }
+  .nosotros-card p {
+    font-size: 14px;
+  }
+
+  /* Shop section */
+  .games-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mediaqueries celular */
+@media (max-width: 425px) {
+  .navbar ul {
+    width: 100%;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    background: #fff;
+    gap: 20px;
+  }
+
+  .navbar i {
+    display: block;
+    padding-right: 50px;
+  }
+
+  #toggle-menu:checked ~ .navbar-list {
+    display: flex;
+  }
+
+  .envio h1 {
+    text-align: center;
+    font-size: 18px;
+  }
+  .descuento {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  /* Nosotros section */
+  .nosotros-card {
+    width: 170px;
+    height: 170px;
+    gap: 13px;
+    padding: 15px;
+  }
+  .nosotros-card img {
+    width: 30px;
+  }
+
+  /* Shop section */
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product {
+    width: 200px;
+    height: 357px;
+    padding: 15px;
+  }
+  .product-top h3 {
+    font-size: 14px;
+    text-align: center;
+  }
+  .product-user img {
+    width: 40px;
+  }
+  .product-mid span {
+    font-size: 15px;
+  }
+  .offer-time p {
+    font-size: 15px;
+  }
+  .btn-add {
+    font-size: 15px;
+  }
+
+  /* Contacto */
+  .contactform {
+    flex-direction: column;
+  }
+  footer {
+    text-align: center;
+  }
+  footer p {
+    font-size: 15px;
+  }
+}
