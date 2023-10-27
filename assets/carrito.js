@@ -205,13 +205,7 @@ const removeProductFromCart = (product) => {
 };
 
 // Función para restar una unidad a un producto del carrito
-/*
- [{
-  messi,
-  4
- }]
 
-*/
 const subtractProductUnit = (product) => {
   cart = cart.map((item) => {
     return item.id === product.id
@@ -260,6 +254,19 @@ const deleteCart = () => {
     "¡No hay productos en el carrito!"
   );
 };
+
+// Función para cerrar el toggle cuando se da click
+
+const menuLink = document.querySelectorAll(".navbar-link");
+const toggleCheckbox = document.getElementById("toggle-menu");
+
+// Agrega un evento de clic a cada enlace del menú
+menuLink.forEach((link) => {
+  link.addEventListener("click", () => {
+    // Desactiva el toggle al hacer clic en un enlace
+    toggleCheckbox.checked = false;
+  });
+});
 
 const carrito = () => {
   renderProducts(appState.products[0]);

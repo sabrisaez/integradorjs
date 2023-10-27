@@ -247,13 +247,13 @@ h1:hover {
   font-weight: 600;
 }
 .product-top p,
-.product-user p {
+.game-console p {
   font-size: 16px;
   font-weight: 400;
   color: var(--text-gray);
 }
 
-.product-user {
+.game-console {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -263,25 +263,25 @@ h1:hover {
   font-weight: 800;
 }
 
-.product-offer {
+.product-year {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.product-user img {
+.game-console img {
   width: 50px;
   border-radius: 200px;
 }
 
-.offer-time {
+.year-p {
   display: flex;
   gap: 10px;
   align-items: center;
   font-weight: 600;
 }
 
-.offer-time img {
+.year-p img {
   width: 20px;
 }
 

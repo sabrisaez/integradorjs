@@ -18,7 +18,7 @@ const createProductTemplate = (product) => {
         </div>
 
         <div class="product-mid">
-            <div class="product-user">
+            <div class="game-console">
                 <img src=${consoleImg} alt="" />
             </div>
             <span>${price} $ARS</span>
@@ -26,8 +26,8 @@ const createProductTemplate = (product) => {
 
 
         <div class="product-bot">
-            <div class="product-offer">
-                <div class="offer-time">
+            <div class="product-year">
+                <div class="year-p">
                     <p>Año:${year}</p>
                 </div>
                 <button class="btn-add"
@@ -134,7 +134,7 @@ const addProduct = (e) => {
   const product = createProductData(e.target.dataset);
   if (isExistingCartProduct(product)) {
     addUnitToProduct(product);
-    showSuccessModal("Se agregó una unidad del producto al carrito");
+    showSuccessModal("Se agregó el producto al carrito");
   } else {
     createCartPorduct(product);
     showSuccessModal("El producto se ha agregado al carrito");
