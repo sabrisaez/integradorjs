@@ -34,6 +34,17 @@ nav {
   z-index: 100;
 }
 
+.navbar-right {
+  justify-content: flex-start;
+}
+
+.navbar-left {
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .navbar ul {
   list-style: none;
   display: flex;
@@ -57,8 +68,7 @@ ul a {
   width: 100px;
 }
 
-.navbar i {
-  font-size: 36px;
+.toggleimg {
   display: none;
 }
 
