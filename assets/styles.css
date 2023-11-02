@@ -191,11 +191,18 @@ h1:hover {
 
 .category:hover {
   background: var(--textgray);
+  transition: all 0.2s ease-in;
 }
 
 .active {
   background: var(--background);
   color: var(--textturquoise);
+}
+
+.active:hover {
+  background: var(--textgray);
+  color: var(--background);
+  transition: all 0.2s ease-in;
 }
 
 /* products */
@@ -305,6 +312,7 @@ h1:hover {
 
 .btn-add:hover {
   background: var(--textblack);
+  transition: all 0.2s ease-in;
 }
 
 .btn-buy,
@@ -312,13 +320,20 @@ h1:hover {
   width: 100%;
 }
 
+.btn-buy:hover {
+  transition: all 0.2s ease-in;
+  background-color: var(--background);
+  color: var(--textgray);
+}
+
 .btn-delete {
-  border: 2px solid var(--primary);
-  background-color: transparent;
+  color: var(--background);
+  background-color: var(--textgray);
 }
 
 .btn-delete:hover {
-  background: var(--primary);
+  background: var(--textblack);
+  color: var(--background);
   transition: 0.3s all ease-in;
 }
 

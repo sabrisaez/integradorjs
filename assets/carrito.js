@@ -64,13 +64,13 @@ const closeOnOverlayClick = () => {
 // Función para crear el template de un producto en el carrito
 
 const createCartProductTemplate = (cartProduct) => {
-  const { id, name, bid, img, quantity } = cartProduct;
+  const { id, name, price, img, quantity } = cartProduct;
   return `    
     <div class="cart-item">
       <img src=${img} alt="Nft del carrito" />
       <div class="item-info">
         <h3 class="item-title">${name}</h3>
-        <span class="item-price">${bid} $ARS</span>
+        <span class="item-price">${price} $ARS</span>
       </div>
       <div class="item-handler">
         <span class="quantity-handler down" data-id=${id}>-</span>
@@ -95,7 +95,7 @@ const renderCart = () => {
 const getCartTotal = () => {
   return cart.reduce(
     (accumulator, current) =>
-      accumulator + Number(current.bid) * current.quantity,
+      accumulator + Number(current.price) * current.quantity,
     0
   );
 };
@@ -139,11 +139,11 @@ const updateCartState = () => {
 
 // Función para crear un objeto con info del producto a agregar del carrito
 
-const createProductData = ({ id, name, bid, img }) => {
+const createProductData = ({ id, name, price, img }) => {
   return {
     id,
     name,
-    bid,
+    price,
     img,
   };
 };

@@ -104,12 +104,6 @@
   font-size: 14px;
 }
 
-.item-bid {
-  color: var(--text-gray);
-  font-weight: 300;
-  font-size: 12px;
-}
-
 .item-price {
   background: var(--textturquoise);
   background-clip: text;
@@ -255,15 +249,11 @@
   transition: all 0.2s ease-in;
 }
 
-/*Botones comprar(carrito) y add(producto) y BENUCBER(Hero)*/
-.btn-add,
-.hero-info a {
-  transition: all 0.2s ease-out;
-}
+/*Botones comprar(carrito) y add(producto) */
 
 .btn-add:hover,
 .hero-info a:hover {
-  background-color: var(--fire);
+  background-color: var(--textgray);
   transition: all 0.2s ease-in;
 }
 
@@ -274,8 +264,8 @@
 }
 
 .btn-load:hover {
-  background-color: var(--electric);
-  color: var(--text-white);
+  background-color: var(--background);
+  color: var(--textturquoise);
   transition: all 0.2s ease-in;
 }
 /* Animaciones */
@@ -314,36 +304,6 @@
   to {
     transform: translateX(0);
   }
-}
-
-/* Animacion al h1 */
-.hero-info h1 {
-  /*animacion - duración - animation-function*/
-  animation: fade 1s ease-in, slide-up 1.3s ease-in-out;
-}
-
-/* Animacion al p */
-.hero-info p {
-  opacity: 0;
-  /*animacion - duración - animation-function - forwards para que quede fijo al final.*/
-  animation: fade 0.8s ease-in forwards, slide-up 0.9s ease-in-out;
-  animation-delay: 0.3s;
-}
-
-/* Animacion al boton */
-.hero-info a {
-  opacity: 0;
-  /*animacion - duración - animation-function - forwards para que quede fijo al final.*/
-  animation: fade 0.8s ease-in forwards, slide-up 0.9s ease-in-out;
-  animation-delay: 0.4s;
-}
-
-/* Animacion a la card del hero */
-.hero-card {
-  opacity: 0;
-  /*animacion - duración - animation-function - forwards para que quede fijo al final.*/
-  animation: fade 1s ease-in forwards, slide-right 1.3s ease-in-out;
-  animation-delay: 0.2s;
 }
 
 /* Animacion Seccion 2 */

@@ -1,4 +1,4 @@
-const gamesContainer = document.querySelector(".games-container");
+const productsContainer = document.querySelector(".games-container");
 const categoriesContainer = document.querySelector(".categories");
 const categoriesList = document.querySelectorAll(".category");
 const showMoreBtn = document.querySelector(".btn-load");
@@ -33,7 +33,7 @@ const createProductTemplate = (product) => {
                 <button class="btn-add"
                 data-id='${id}'
                 data-name='${name}'
-                data-bid='${price}'
+                data-price='${price}'
                 data-img='${cardImg}'>Agregar</button>
             </div>
         </div>
@@ -42,7 +42,9 @@ const createProductTemplate = (product) => {
 };
 
 const renderProducts = (productList) => {
-  gamesContainer.innerHTML += productList.map(createProductTemplate).join("");
+  productsContainer.innerHTML += productList
+    .map(createProductTemplate)
+    .join("");
 };
 
 // Ver más //
@@ -72,9 +74,9 @@ const setShowMoreVisibility = () => {
   showMoreBtn.classList.add("hidden");
 };
 
-// Lógica de los filtros
+// FILTROS
 
-// Fucnión para cambiar el estado de los botones del filtro/categorias
+// Función para cambiar el estado de los botones del filtro/categorias
 const changeBtnActiveState = (selectedCategory) => {
   const categories = [...categoriesList];
   categories.forEach((categoryBtn) => {
@@ -108,7 +110,7 @@ const applyFilter = (event) => {
   const { target } = event;
   console.log(target);
   if (!isInactiveFilterBtn(target)) return;
-  gamesContainer.innerHTML = "";
+  productsContainer.innerHTML = "";
 
   changeFilterState(target);
   if (appState.activeFilter) {
@@ -143,10 +145,9 @@ const addProduct = (e) => {
 };
 
 const init = () => {
-  renderProducts(appState.products[0]);
   showMoreBtn.addEventListener("click", showMoreProducts);
   categoriesContainer.addEventListener("click", applyFilter);
-  gamesContainer.addEventListener("click", addProduct);
+  productsContainer.addEventListener("click", addProduct);
 };
 
 init();
