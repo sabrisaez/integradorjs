@@ -37,7 +37,7 @@ const productsData = [
   },
   {
     id: 5,
-    name: "Mortal Kombat-2",
+    name: "Mortal Kombat 2",
     price: 22000,
     year: 1993,
     category: "snes",
