@@ -59,6 +59,7 @@
 
 /* Mediaqueries otros dispositivos */
 @media (max-width: 679px) {
+  /* Nosotros */
   .nosotros-card {
     width: 200px;
     height: 200px;
@@ -67,6 +68,17 @@
   .nosotros-container {
     display: flex;
     flex-direction: column;
+  }
+
+  /* Contacto */
+  .contactform {
+    flex-direction: column;
+  }
+  footer {
+    text-align: center;
+  }
+  footer p {
+    font-size: 15px;
   }
 }
 
