@@ -1,3 +1,17 @@
+/* Mediaqueries otras pantallas */
+@media (max-width: 829px) {
+  .nosotros-card {
+    width: 200px;
+    height: 200px;
+  }
+  .nosotros-card h3 {
+    font-size: 15px;
+  }
+  .nosotros-card p {
+    font-size: 14px;
+  }
+}
+
 /* Mediaqueries tablet */
 @media (max-width: 768px) {
   .navbar ul {
@@ -40,6 +54,19 @@
   /* Shop section */
   .games-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mediaqueries otros dispositivos */
+@media (max-width: 679px) {
+  .nosotros-card {
+    width: 200px;
+    height: 200px;
+  }
+
+  .nosotros-container {
+    display: flex;
+    flex-direction: column;
   }
 }
 
